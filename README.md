@@ -1,16 +1,8 @@
-# Default themes for TypeDoc
+# Modified default Typedoc themes for Discord-Samba
 
-This module contains the default themes of TypeDoc.
-Visit https://typedoc.org/ to learn more about TypeDoc.
+Changes:
 
-## Contributing
-
-Contributions are welcome and appreciated. You can find TypeDoc on GitHub, feel free to start
-an issue or create a pull requests:<br>
-[https://github.com/TypeStrong/typedoc](https://github.com/TypeStrong/typedoc)
-
-To use a local build of this project, run the `npm pack` command in this directory. Then
-in the project where you want to use your local build run `npm install ../path/to/typedoc-default-themes-VERSION.tgz`
+-   Added a dropdown list with module links (Modified from the base public/private filter selector)
 
 ## License
 

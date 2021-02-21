@@ -1,6 +1,6 @@
 {
-  "name": "typedoc-default-themes",
-  "description": "Default themes for TypeDoc.",
+  "name": "@discord-samba/typedoc-themes",
+  "description": "Modified typedoc themes for Discord-samba",
   "version": "0.12.7",
   "homepage": "https://typedoc.org/",
   "main": "bin/plugin.js",

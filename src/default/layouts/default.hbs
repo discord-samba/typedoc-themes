@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{{relativeURL "assets/css/main.css"}}">
+    <link rel="shortcut icon" href="{{relativeURL "../favicon.ico"}}">
     <script async src="{{relativeURL "assets/js/search.js"}}" id="search-script"></script>
 </head>
 <body>
@@ -16,9 +17,6 @@
 
 <div class="container container-main">
     <div class="row">
-        <div class="col-8 col-content">
-            {{{contents}}}
-        </div>
         <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
             <nav class="tsd-navigation primary">
                 <ul>
@@ -35,6 +33,9 @@
                     {{/each}}
                 </ul>
             </nav>
+        </div>
+        <div class="col-8 col-content">
+            {{{contents}}}
         </div>
     </div>
 </div>

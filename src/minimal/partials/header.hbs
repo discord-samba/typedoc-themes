@@ -3,12 +3,24 @@
         <div class="container">
             <div class="table-wrap">
                 <div class="table-cell">
-                    <strong><a href="{{relativeURL "index.html"}}">{{project.name}}</a></strong>
+                    <strong><a href="{{relativeURL "../index.html"}}">{{project.name}}</a></strong>
                 </div>
                 <div class="table-cell" id="tsd-widgets">
                     <div id="tsd-filter">
                         <a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
                         <div class="tsd-filter-group">
+                            <div class="tsd-modules" id="tsd-modules-selector">
+                                <span class="tsd-modules-label">Modules</span>
+                                <ul class="tsd-modules-list">
+                                    {{#each settings.links}}
+                                        {{#if current}}
+                                            <li class="selected" data-url="{{url}}">{{label}}</li>
+                                        {{else}}
+                                            <li data-url="{{url}}">{{label}}</li>
+                                        {{/if}}
+                                    {{/each}}
+                                </ul>
+                            </div>
                             <div class="tsd-select" id="tsd-filter-visibility">
                                 <span class="tsd-select-label">All</span>
                                 <ul class="tsd-select-list">

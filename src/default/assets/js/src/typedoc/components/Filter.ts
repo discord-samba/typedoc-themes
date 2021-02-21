@@ -72,6 +72,59 @@ class FilterItemCheckbox extends FilterItem<boolean> {
     }
 }
 
+class ModuleSelect extends FilterItem<string> {
+    private select!: HTMLElement;
+
+    protected initialize() {
+        document.documentElement.classList.add(
+            "toggle-" + this.key + this.value
+        );
+
+        const select = document.querySelector<HTMLElement>(
+            "#tsd-modules-" + this.key
+        );
+
+        if (!select) return;
+
+        this.select = select;
+        const onActivate = () => {
+            this.select.classList.add("active");
+        };
+        const onDeactivate = () => {
+            this.select.classList.remove("active");
+        };
+
+        this.select.addEventListener(pointerDown, onActivate);
+        this.select.addEventListener("mouseover", onActivate);
+        this.select.addEventListener("mouseleave", onDeactivate);
+
+        this.select.querySelectorAll("li").forEach((el) => {
+            el.addEventListener(pointerUp, (e) => {
+                select.classList.remove("active");
+                window.location.href = el.dataset.url!;
+            });
+        });
+
+        document.addEventListener(pointerDown, (e) => {
+            if (this.select.contains(e.target as HTMLElement)) return;
+
+            this.select.classList.remove("active");
+        });
+    }
+
+    protected handleValueChange() {
+        return;
+    }
+
+    protected fromLocalStorage(value: string): string {
+        return value;
+    }
+
+    protected toLocalStorage(value: string): string {
+        return value;
+    }
+}
+
 class FilterItemSelect extends FilterItem<string> {
     private select!: HTMLElement;
 
@@ -142,6 +195,8 @@ class FilterItemSelect extends FilterItem<string> {
 }
 
 export class Filter extends Component {
+    private moduleSelect: ModuleSelect;
+
     private optionVisibility: FilterItemSelect;
 
     private optionInherited: FilterItemCheckbox;
@@ -151,6 +206,7 @@ export class Filter extends Component {
     constructor(options: IComponentOptions) {
         super(options);
 
+        this.moduleSelect = new ModuleSelect("selector", "modules");
         this.optionVisibility = new FilterItemSelect("visibility", "private");
         this.optionInherited = new FilterItemCheckbox("inherited", true);
         this.optionExternals = new FilterItemCheckbox("externals", true);
