@@ -3,6 +3,8 @@
 Changes:
 
 -   Added a dropdown list with module links (Modified from the base public/private filter selector)
+-   Added export kind headers to Table of Contents
+    -   Requires [@discord-samba/typedoc-patch](https://github.com/discord-samba/typedoc-patch))
 
 ## License
 

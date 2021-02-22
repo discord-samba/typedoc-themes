@@ -1,3 +1,8 @@
+{{#unless (wasKindUsed reflection.kindString)}}
+    </ul>
+    <h3{{#if @first}} class="first"{{/if}}>{{useKind reflection.kindString}}</h3>
+    <ul>
+{{/unless}}
 {{#if isInPath}}
     </ul>
     <ul class="current">
